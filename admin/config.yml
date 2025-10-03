@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: citrapricylia/dummy-si   # ganti dengan repo GitHub kamu
+  repo: citrapricylia-am/dummy-site   # ganti dengan repo kamu
   branch: main
 
 media_folder: "images/uploads"
@@ -16,9 +16,3 @@ collections:
         fields:
           - { label: "Judul Hero", name: "hero_title", widget: "string" }
           - { label: "Deskripsi Hero", name: "hero_desc", widget: "text" }
-          - label: "Statistik"
-            name: "stats"
-            widget: "list"
-            fields:
-              - { label: "Angka", name: "value", widget: "string" }
-              - { label: "Label", name: "label", widget: "string" }
