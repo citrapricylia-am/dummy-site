@@ -4,15 +4,13 @@
     <meta charset="utf-8" />
     <title>Content Manager</title>
 
-    <!-- Manual init -->
+    <!-- Manual init dengan config langsung -->
     <script>
       window.CMS_MANUAL_INIT = true;
-
-      // kasih config global
       window.CMS_CONFIG = {
         backend: {
           name: "github",
-          repo: "citrapricylia-am/dummy-site", // ganti dengan repo kamu
+          repo: "citrapricylia-am/dummy-site",   // ganti dengan repo kamu
           branch: "main",
           base_url: "https://api.netlify.com",
           auth_endpoint: "auth"
@@ -31,7 +29,16 @@
                 name: "home",
                 fields: [
                   { label: "Judul Hero", name: "hero_title", widget: "string" },
-                  { label: "Deskripsi Hero", name: "hero_desc", widget: "text" }
+                  { label: "Deskripsi Hero", name: "hero_desc", widget: "text" },
+                  {
+                    label: "Statistik",
+                    name: "stats",
+                    widget: "list",
+                    fields: [
+                      { label: "Angka", name: "value", widget: "string" },
+                      { label: "Label", name: "label", widget: "string" }
+                    ]
+                  }
                 ]
               }
             ]
@@ -40,9 +47,10 @@
       };
     </script>
 
-    <!-- load Decap CMS -->
+    <!-- Load Decap CMS -->
     <script src="https://unpkg.com/decap-cms@3.5.0/dist/decap-cms.js"></script>
   </head>
   <body>
+    <!-- Decap CMS otomatis mount di sini -->
   </body>
 </html>
