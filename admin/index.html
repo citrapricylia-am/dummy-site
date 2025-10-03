@@ -11,34 +11,37 @@
   </head>
   <body>
     <script>
-      CMS.init({
-        config: {
-          backend: {
-            name: "github",
-            repo: "citrapricylia-am/dummy-site", // ganti repo kamu
-            branch: "main"
-          },
-          media_folder: "images/uploads",
-          public_folder: "/images/uploads",
-          collections: [
+  CMS.init({
+    config: {
+      backend: {
+        name: "github",
+        repo: "citrapricylia-am/dummy-site", // ganti dengan repo kamu
+        branch: "main",
+        base_url: "https://api.netlify.com",   // penting untuk auth via Netlify
+        auth_endpoint: "auth"                  // endpoint default untuk OAuth
+      },
+      site_url: "https://dummy-si.netlify.app",  // tambahkan site_url
+      media_folder: "images/uploads",
+      public_folder: "/images/uploads",
+      collections: [
+        {
+          name: "homepage",
+          label: "Homepage",
+          files: [
             {
-              name: "homepage",
-              label: "Homepage",
-              files: [
-                {
-                  file: "data/homepage.yml",
-                  label: "Konten Homepage",
-                  name: "home",
-                  fields: [
-                    { label: "Judul Hero", name: "hero_title", widget: "string" },
-                    { label: "Deskripsi Hero", name: "hero_desc", widget: "text" }
-                  ]
-                }
+              file: "data/homepage.yml",
+              label: "Konten Homepage",
+              name: "home",
+              fields: [
+                { label: "Judul Hero", name: "hero_title", widget: "string" },
+                { label: "Deskripsi Hero", name: "hero_desc", widget: "text" }
               ]
             }
           ]
         }
-      });
-    </script>
+      ]
+    }
+  });
+</script>
   </body>
 </html>
