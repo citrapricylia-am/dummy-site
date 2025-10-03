@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <title>Content Manager</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-</head>
-<body>
-  <script>
-    CMS.init({
-      config: {
-        backend: {
-          name: "github",
-          repo: "citrapricylia/dummy-si",
-          branch: "main"
-        },
-        media_folder: "images/uploads",
-        public_folder: "/images/uploads",
-        collections: [
-          {
-            name: "homepage",
-            label: "Homepage",
-            files: [
+  <head>
+    <meta charset="utf-8" />
+    <title>Content Manager</title>
+    <!-- load Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </head>
+  <body>
+    <script>
+      // pastikan script ini dipanggil SETELAH decap-cms.js sudah dimuat
+      if (window.CMS) {
+        CMS.init({
+          config: {
+            backend: {
+              name: "github",
+              repo: "citrapricylia/dummy-si", // ganti repo kamu
+              branch: "main"
+            },
+            media_folder: "images/uploads",
+            public_folder: "/images/uploads",
+            collections: [
               {
-                file: "data/homepage.yml",
-                label: "Konten Homepage",
-                name: "home",
-                fields: [
-                  { label: "Judul Hero", name: "hero_title", widget: "string" },
-                  { label: "Deskripsi Hero", name: "hero_desc", widget: "text" }
+                name: "homepage",
+                label: "Homepage",
+                files: [
+                  {
+                    file: "data/homepage.yml",
+                    label: "Konten Homepage",
+                    name: "home",
+                    fields: [
+                      { label: "Judul Hero", name: "hero_title", widget: "string" },
+                      { label: "Deskripsi Hero", name: "hero_desc", widget: "text" }
+                    ]
+                  }
                 ]
               }
             ]
           }
-        ]
+        });
+      } else {
+        console.error("Decap CMS gagal load.");
       }
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
