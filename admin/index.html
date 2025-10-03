@@ -5,43 +5,45 @@
     <title>Content Manager</title>
     <!-- Beritahu Decap supaya tidak otomatis cari config.yml -->
     <script>
-      window.CMS_MANUAL_INIT = true;
-    </script>
-    <script src="https://unpkg.com/decap-cms@3.5.0/dist/decap-cms.js"></script>
-  </head>
-  <body>
-    <script>
-  CMS.init({
-    config: {
-      backend: {
-        name: "github",
-        repo: "citrapricylia-am/dummy-site", // ganti dengan repo kamu
-        branch: "main",
-        base_url: "https://api.netlify.com",   // penting untuk auth via Netlify
-        auth_endpoint: "auth"                  // endpoint default untuk OAuth
-      },
-      site_url: "https://dummy-si.netlify.app",  // tambahkan site_url
-      media_folder: "images/uploads",
-      public_folder: "/images/uploads",
-      collections: [
-        {
-          name: "homepage",
-          label: "Homepage",
-          files: [
-            {
-              file: "data/homepage.yml",
-              label: "Konten Homepage",
-              name: "home",
-              fields: [
-                { label: "Judul Hero", name: "hero_title", widget: "string" },
-                { label: "Deskripsi Hero", name: "hero_desc", widget: "text" }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  });
+  window.CMS_MANUAL_INIT = true;
+</script>
+<script src="https://unpkg.com/decap-cms@3.5.0/dist/decap-cms.js"></script>
+<script>
+  if (window.CMS) {
+    CMS.init({
+      config: {
+        backend: {
+          name: "github",
+          repo: "citrapricylia-am/dummy-site",
+          branch: "main",
+          base_url: "https://api.netlify.com",
+          auth_endpoint: "auth"
+        },
+        site_url: "https://dummy-si.netlify.app",
+        media_folder: "images/uploads",
+        public_folder: "/images/uploads",
+        collections: [
+          {
+            name: "homepage",
+            label: "Homepage",
+            files: [
+              {
+                file: "data/homepage.yml",
+                label: "Konten Homepage",
+                name: "home",
+                fields: [
+                  { label: "Judul Hero", name: "hero_title", widget: "string" },
+                  { label: "Deskripsi Hero", name: "hero_desc", widget: "text" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    });
+  } else {
+    console.error("CMS gagal dimuat");
+  }
 </script>
   </body>
 </html>
