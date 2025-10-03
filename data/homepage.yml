@@ -1,0 +1,9 @@
+hero_title: "Selamat Datang di Dummy Website"
+hero_desc: "Ini contoh website sederhana yang terhubung ke Netlify CMS."
+stats:
+  - value: "123"
+    label: "Jumlah Pengguna"
+  - value: "456"
+    label: "Jumlah Artikel"
+  - value: "789"
+    label: "Jumlah Komentar"

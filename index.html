@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dummy CMS Demo</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1 id="hero-title"></h1>
+    <p id="hero-desc"></p>
+  </header>
+
+  <main>
+    <h2>Statistik</h2>
+    <div id="stats-container"></div>
+  </main>
+
+  <script>
+    // Ambil konten dari YAML
+    fetch("data/homepage.yml")
+      .then(res => res.text())
+      .then(txt => jsyaml.load(txt))
+      .then(data => {
+        document.getElementById("hero-title").innerText = data.hero_title;
+        document.getElementById("hero-desc").innerText = data.hero_desc;
+
+        const statsEl = document.getElementById("stats-container");
+        data.stats.forEach(stat => {
+          const div = document.createElement("p");
+          div.innerHTML = `<strong>${stat.value}</strong> - ${stat.label}`;
+          statsEl.appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>
