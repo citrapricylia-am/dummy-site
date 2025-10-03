@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: citrapricylia/dummy-si   # ganti dengan repo GitHub kamu
   branch: main
 
 media_folder: "images/uploads"
