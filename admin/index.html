@@ -3,18 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <title>Content Manager</title>
-    <!-- Beritahu Decap supaya tidak otomatis cari config.yml -->
+
+    <!-- Manual init -->
     <script>
-  window.CMS_MANUAL_INIT = true;
-</script>
-<script src="https://unpkg.com/decap-cms@3.5.0/dist/decap-cms.js"></script>
-<script>
-  if (window.CMS) {
-    CMS.init({
-      config: {
+      window.CMS_MANUAL_INIT = true;
+
+      // kasih config global
+      window.CMS_CONFIG = {
         backend: {
           name: "github",
-          repo: "citrapricylia-am/dummy-site",
+          repo: "citrapricylia-am/dummy-site", // ganti dengan repo kamu
           branch: "main",
           base_url: "https://api.netlify.com",
           auth_endpoint: "auth"
@@ -39,11 +37,12 @@
             ]
           }
         ]
-      }
-    });
-  } else {
-    console.error("CMS gagal dimuat");
-  }
-</script>
+      };
+    </script>
+
+    <!-- load Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@3.5.0/dist/decap-cms.js"></script>
+  </head>
+  <body>
   </body>
 </html>
